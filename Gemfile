@@ -72,6 +72,18 @@ gem 'acts-as-taggable-on'
 # Replace gem 'tagsinput-rails' with the following one for Bootstrap
 gem 'bootstrap-tagsinput-rails'
 
+# for Testing
+group :test, :development do
+  gem 'rspec-rails'
+end
+
+# for AutoTest
+group :development do
+  gem 'guard'
+  gem 'guard-rails'
+  gem 'guard-rspec'
+end
+
 group :development do
 
   # Use sqlite3 as the database for Active Record
