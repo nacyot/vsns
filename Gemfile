@@ -58,6 +58,11 @@ gem 'rmagick'
 
 # for Authentication and Authorization
 gem 'devise'
+
+gem 'omniauth'
+gem 'omniauth-github'
+
+
 #gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 gem 'authority'
 gem 'rolify'
@@ -84,6 +89,8 @@ group :development do
   gem 'guard-rspec'
 end
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :development do
 
   # Use sqlite3 as the database for Active Record
@@ -92,6 +99,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'annotate'
 end
 
 group :production do
