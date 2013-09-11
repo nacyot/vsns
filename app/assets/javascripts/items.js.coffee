@@ -1,15 +1,20 @@
-$ ->
+$(document).on 'click', '.add_a_comment_link', ->
+  $(this).parent().parent().next().next().slideToggle()
+  false
 
-  $('.add_a_comment_link').bind "click", ->
-    $(this).parent().parent().next().next().slideToggle()
-    false
+$(document).on 'click', '.show_comments_link', ->
+  if $(this).hasClass('enabled')
+    $(this).next().slideToggle()  
 
-  $('.show_comments_link').bind "click", ->
-    if $(this).hasClass('enabled')
-      $(this).next().slideToggle()  
 
+initTooltip = ->
   $('.thumbnail').tooltip
     placement: 'bottom'
+
+$ ->
+  initTooltip()
+  
+$(document).on 'page:load', initTooltip    
     
 initTagInput = ->
   $tagInput = $('input[name="item[tag_list]"]')

@@ -3,17 +3,53 @@ vsns
 
 : Dev.Study - Official VSNS Repository since 2013.9.1
 
-#### 2013년 9월 11일 => 아장아장 유닛 작업내용
+#### 2013년 9월 11일 (#2) => 아장아장 유닛 작업내용
 
-* 이준헌님의 도움으로 pageless 기능 문제점 해결함
+* 기타 나머지 Turbolinks 문제를 해결함. 
 
-  in items/index.html
+  * app/assets/javascripts/communities.js.coffee
+
+        ```
+        $(document).on 'click', "#add_a_community_link", ->
+          $(this).parent().next().slideToggle()
+          false
+        $(document).on 'click', "#community_header_info_link", ->
+          $(this).parent().parent().find('.info').slideToggle()
+          false
+        ```
+
+  * app/assets/javascripts/items.js.coffee
+
+        ```
+        $(document).on 'click', '.add_a_comment_link', ->
+          $(this).parent().parent().next().next().slideToggle()
+          false
+
+        $(document).on 'click', '.show_comments_link', ->
+          if $(this).hasClass('enabled')
+            $(this).next().slideToggle()  
+
+        initTooltip = ->
+          $('.thumbnail').tooltip
+            placement: 'bottom'
+
+        $ ->
+          initTooltip()
+          
+        $(document).on 'page:load', initTooltip 
+        ```
+
+
+***
+
+#### 2013년 9월 11일 (#1) => 아장아장 유닛 작업내용
+
+* 이준헌님의 도움으로 pageless 기능 문제점 해결함 
+
+* in items/index.html
 
   ```
-  <div id="items" 
-    data-total-pages="<%= @items.total_pages %>" 
-    data-url="<%= items_path %>"
-    data-loader-image="<%= image_path('load1.gif') %>"> 
+  <div id='items' data-total-pages="<%= @items.total_pages %>" data-url="<%= items_path %>" data-loader-image="<%= image_path('load1.gif') %>"> 
     <%= render @items %>
   </div>
 
@@ -22,41 +58,40 @@ vsns
   <%= will_paginate @items %>
   ```
 
-  in items.js.coffee
+* in items.js.coffee
 
-  ```
-  initPageless = ->
-    $items = $('#items')
+    ```
+    initPageless = ->
+      $items = $('#items')
 
-    # items dom 존재여부 확인
-    return unless $items.length
+      # items dom 존재여부 확인
+      return unless $items.length
 
-    # pageless 설정정보 dom에서 가져오기
-    opts =
-      totalPages  : $items.data('total-pages')
-      url         : $items.data('url')
-      loaderMsg   : 'Loading more pages...'
-      loaderImage : $items.data('loader-image')
+      # pageless 설정정보 dom에서 가져오기
+      opts =
+        totalPages  : $items.data('total-pages')
+        url         : $items.data('url')
+        loaderMsg   : 'Loading more pages...'
+        loaderImage : $items.data('loader-image')
 
-    # pageless 시작
-    $items.pageless opts
+      # pageless 시작
+      $items.pageless opts
 
-  # pageless 초기화
-  resetPageless = ->
-    $items = $('#items')
+    # pageless 초기화
+    resetPageless = ->
+      $items = $('#items')
 
-    return unless $items.length
+      return unless $items.length
 
-    $.pagelessReset()
+      $.pagelessReset()
 
+    $ -> 
+      initPageless()
 
-  $ -> 
-    initPageless()
-
-  # Turbolink 이벤트를 통한 처리
-  $(document).on 'page:load', initPageless
-  $(document).on 'page:before-change', resetPageless # 화면 전환전 pageless 초기화
-  ```  
+    # Turbolink 이벤트를 통한 처리
+    $(document).on 'page:load', initPageless
+    $(document).on 'page:before-change', resetPageless # 화면 전환전 pageless 초기화
+    ```
 
 ***
 
