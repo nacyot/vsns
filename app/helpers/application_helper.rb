@@ -24,8 +24,8 @@ module ApplicationHelper
   end
 
 
-  # def markdown(text)
-  #   markdown = Redcarpet::Markdown.new(PygmentsHTML, :gh_blockcode => true)
-  #   markdown.render(text).html_safe
-  # end
+  def spinner(image="spinner_15x12.gif", width=15, height=12)
+    image_tag image, class:"spinner", style:"width:#{width}px;height:#{height}px;margin:0;padding:0;"
+  end
+
 end
