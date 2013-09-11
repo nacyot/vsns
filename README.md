@@ -5,6 +5,8 @@ vsns
 
 #### 2013년 9월 11일 => 아장아장 유닛 작업내용
 
+* like 링크를 클릭하면 spinner 이미지가 보였다가 사라지게 하였습니다. 
+
 * 이준헌님의 도움으로 pageless 기능 문제점 해결함
 
   in items/index.html
