@@ -44,7 +44,13 @@ end
 
 # commented out by hschoi due to incompatibility to summernote-rails
 # gem 'flatui-rails'
-gem 'summernote-rails'
+# gem 'summernote-rails'
+
+gem 'wmd-rails'
+
+# gem "markdown-rails"
+# gem "redcarpet"
+# gem "pygments.rb"
 
 gem 'slimbox2-rails'
 
@@ -58,10 +64,9 @@ gem 'rmagick'
 
 # for Authentication and Authorization
 gem 'devise'
-
-gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 gem 'omniauth-github'
-
 
 #gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 gem 'authority'
@@ -99,6 +104,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'quiet_assets'
   gem 'annotate'
 end
 
