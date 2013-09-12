@@ -3,6 +3,42 @@ vsns
 
 : Dev.Study - Official VSNS Repository since 2013.9.1
 
+#### 2013년 9월 12일 => 나머지 turbolinks 문제해결 함. hschoi
+
+* items.js.coffee
+
+```
+$(document).on 'click', '.add_a_comment_link', ->
+  $(this).parent().parent().next().next().slideToggle()
+  false
+
+$(document).on 'click', '.show_comments_link', ->
+  if $(this).hasClass('enabled')
+    $(this).next().slideToggle()  
+
+initTooltip = ->
+  $('.thumbnail').tooltip
+    placement: 'bottom'
+
+$ ->
+  initTooltip()
+  
+$(document).on 'page:load', initTooltip 
+```
+
+* communities.js.coffee
+
+```
+$(document).on 'click', "#add_a_community_link", ->
+  $(this).parent().next().slideToggle()
+  false
+$(document).on 'click', "#community_header_info_link", ->
+  $(this).parent().parent().find('.info').slideToggle()
+  false
+```
+
+***
+
 #### 2013년 9월 11일 (#2) => 아장아장 유닛 작업내용
 
 
