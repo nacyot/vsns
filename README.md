@@ -37,6 +37,12 @@ $(document).on 'click', "#community_header_info_link", ->
   false
 ```
 
+* `User` 모델의 `username` 속성의 validation이 `presence: true` 로 지정되어 있어 `username` 값이 `nil` 일 경우는 없겠지만, 이전의 유저 데이터에는 `username` 값이 없기 때문에 에러가 발생함. 따라서, 아래와 같이 조치함. 
+
+```
+<%= link_to raw("<i class='icon-user'></i> #{current_user.try(:username)}" + " <span class='caret'></span>"), '#', class:'dropdown-toggle', data:{toggle:'dropdown'} %>
+```
+
 ***
 
 #### 2013년 9월 11일 (#2) => 아장아장 유닛 작업내용
