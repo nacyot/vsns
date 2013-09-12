@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
   # add username
   # validates_presence_of   :username
   # validates_uniqueness_of :username
-  validate :name, presence: true, uniqueness: true
+  validate :username, presence: true, uniqueness: true
 
   # Connect avatar attribute to Carrierwave Uploader.
   mount_uploader :avatar, ProfileUploader  
