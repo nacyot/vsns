@@ -163,6 +163,8 @@ GEM
     rack (1.5.2)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
+    rack-cors (0.2.8)
+      rack
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.0)
@@ -264,6 +266,7 @@ DEPENDENCIES
   pageless-rails!
   pg
   quiet_assets
+  rack-cors
   rails (= 4.0.0)
   rails_12factor
   rmagick
