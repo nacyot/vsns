@@ -3,6 +3,25 @@ vsns
 
 : Dev.Study - Official VSNS Repository since 2013.9.1
 
+#### 2013년 9월 18일 => rack-cors 젬추가함
+
+* Gemfile 추가
+  
+  ```
+  gem 'rack-cors', :require => 'rack/cors' by hschoi
+  ```
+
+* config/application.rb
+
+  ```
+  config.middleware.use Rack::Cors do
+    allow do
+      origins '*'
+      resource '*', :headers => :any, :methods => [:get, :post, :options]
+    end
+  end
+  ```  
+
 #### 2013년 9월 12일 => 나머지 turbolinks 문제해결 함. hschoi
 
 * items.js.coffee
