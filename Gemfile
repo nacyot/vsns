@@ -96,6 +96,8 @@ end
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+gem 'rack-cors', :require => 'rack/cors'
+
 group :development do
 
   # Use sqlite3 as the database for Active Record
